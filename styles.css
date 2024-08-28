@@ -84,15 +84,18 @@ header {
 /* MAIN */
 main {
     background: black;
-    width: 100%;
-    min-height: 90dvh;
     padding: 0 100px;
+    width: 100%;
+}
+
+.content-one {
+    min-height: 90dvh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-main::before {
+.content-one::before {
     content: '';
     position: absolute;
     width: 4px;
