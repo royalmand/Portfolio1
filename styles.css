@@ -390,13 +390,17 @@ main {
 /* MAIN CONTENT 4 */
 .content-four {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 100vh;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .content-four .four-left {
     background: linear-gradient(180deg, rgba(255, 255, 255, .08) 0%, rgba(0, 0, 0, 0) 56.92919481981982%, rgba(47, 59, 225, .7) 100%);
+    flex: 1;
+    display: flex; /* Use flexbox to center the box if needed */
+    justify-content: center;
+    align-items: center;
     padding: 32px 20px 20px;
     border-radius: 16px;
     height: 80vh;
@@ -431,8 +435,18 @@ main {
 }
 
 .content-four .four-right {
-    background-color: #6633FF;
-    border-radius: 10px;
+    flex: 1; /* Takes up 1 part of the available space */
+    display: flex; /* Use flexbox for vertical stacking */
+    flex-direction: column; /* Aligns children in a column */
+    gap: 20px; /* Adds space between the boxes */
+    margin: 10px 0;
+}
+
+.news {
+    background-color: #3342cd; /* Box background color */
+    padding: 20px; /* Padding inside the boxes */
+    border: 1px solid #ccc; /* Optional: Box border */
+    text-align: center; /* Centers text inside the box */
 }
 
 /* END OF MAIN CONTENT 4 */

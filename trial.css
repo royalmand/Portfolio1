@@ -1,46 +1,26 @@
-body {
-    margin: 0; /* Remove default body margin to avoid gaps */
-    padding: 0;
-}
-
-header, .content-one {
-    background-image: url('your-image-url.jpg'); /* Replace with your image URL */
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Avoid repeating the background */
-}
-
-/* Additional styles for layout */
-header {
-    height: 200px; /* Example height for header */
-    padding: 20px; /* Adjust padding as needed */
-}
-
-.content-one {
-    min-height: 600px; /* Example minimum height for content-one */
-    padding: 20px; /* Adjust padding as needed */
-}
-
-/* General card styling */
-.card {
-    width: 200px;
-    height: 100px;
-    background-color: skyblue;
-    margin: 50px auto;
-    opacity: 0; /* Start hidden */
-    transform: translateY(50px); /* Start slightly below */
-    transition: none; /* Disable CSS transition for smoother control */
-}
-
-/* Specific transformations for each card */
-.card1 {
-    transform: translateX(-100%); /* Start off from the left */
-}
-
-.card2 {
-    transform: translateY(100%); /* Start off from the bottom */
-}
-
-.card3 {
-    transform: translateX(100%); /* Start off from the right */
-}
+.container {
+    display: flex; /* Creates a flex container */
+    gap: 20px; /* Adds space between columns */
+  }
+  
+  .left-column {
+    flex: 1; /* Takes up 1 part of the available space */
+    display: flex; /* Use flexbox to center the box if needed */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-column {
+    flex: 1; /* Takes up 1 part of the available space */
+    display: flex; /* Use flexbox for vertical stacking */
+    flex-direction: column; /* Aligns children in a column */
+    gap: 20px; /* Adds space between the boxes */
+  }
+  
+  .box {
+    background-color: #f0f0f0; /* Box background color */
+    padding: 20px; /* Padding inside the boxes */
+    border: 1px solid #ccc; /* Optional: Box border */
+    text-align: center; /* Centers text inside the box */
+  }
+  
