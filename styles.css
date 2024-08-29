@@ -266,10 +266,11 @@ main {
 
 /* MAIN CONTENT 3*/
 .content-three {
-    background-color: #6633FF;
+    /* background-color: #6633FF; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     padding: 20px 0;
     animation: showUp 0.7s forwards;
     animation-delay: 2.3s;
@@ -279,7 +280,82 @@ main {
 .content-three .three-text1 {
     font-size: 50px;
     font-weight: 600;
+    text-align: center; /* Center align the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
 }
+
+.protocols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center align the protocol cards */
+    margin: 20px 0;
+}
+
+.card {
+    background-color: green;
+    padding: 20px;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    position: relative; /* Make card relative for positioning */
+    display: flex; /* Add flexbox for better alignment */
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the start */
+    justify-content: space-between; /* Space content evenly */
+}
+
+.card img {
+    height: 80px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 5px; /* Add slight border-radius to images */
+}
+
+.protocol-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 10px; /* Adjust margin */
+    width: 100%; /* Occupy full width to align content */
+    display: flex; /* Use flex to align arrow and title */
+    align-items: center; /* Center align vertically */
+    animation: showUp 0.7s forwards;
+    animation-delay: 2.9s;
+    opacity: 0;
+}
+
+.arrow {
+    position: absolute; /* Position arrow absolutely */
+    right: 10px; /* Adjust right position */
+    top: 10; /* Align to the top */
+    font-size: 16px; /* Adjust font size */
+    color: white; /* Adjust color for better visibility */
+    cursor: pointer; /* Add a pointer cursor */
+}
+
+.silk {
+    background: #925D32;
+    opacity: 0;
+    transform: translate(-100%, -100%); /* Start off-screen from the top left */
+    transition: all 0.5s ease-out; /* Smooth transition for added effect */
+}
+
+.zeronym {
+    background: #26328a;
+    opacity: 0; /* Start hidden */
+}
+
+.misthi {
+    background: #b79913;
+    opacity: 0;
+    transform: translate(100%, -100%); /* Start off-screen from the top right */
+    transition: all 0.5s ease-out; /* Smooth transition for added effect */
+}
+
+.hidden-wrap {
+    display: none;
+}
+
 /* END OF MAIN CONTENT 3 */
 
 /* FOOTER */
@@ -425,6 +501,41 @@ footer {
         transform: translateX(-100%);
     }
 }
+
+@keyframes slideLeft {
+    from {
+        transform: translate(-100%, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translate(100%, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+/* Class to activate animation */
+.silk-active {
+    animation: slideLeft 1s forwards;
+}
+
+.zeronym-active {
+    animation: showUp 1.2s forwards;
+}
+
+.misthi-active {
+    animation: slideRight 1s forwards;
+}
+/* END of Class to activate animation */
+
 /* END OF ANIMATION  */
 
 #menu-toggle {
