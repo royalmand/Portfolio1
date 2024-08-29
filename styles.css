@@ -436,9 +436,10 @@ footer {
 }
 
 /* RESPONSIVE SCREEN */
+
 @media screen and (max-width: 768px) {
     header {
-        padding: 0 25px;
+        padding: 0 20px;
     }
 
     .menu-icon {
@@ -450,7 +451,7 @@ footer {
     }
 
     .menu-icon i {
-        font-size: 40px;
+        font-size: 30px; /* Smaller icon size for smaller screens */
         cursor: pointer;
     }
 
@@ -469,53 +470,54 @@ footer {
     .list-menu {
         background: rgb(255,255,255,0.3);
         position: absolute;
-        top: 80px;
+        top: 60px; /* Adjust top position for smaller headers */
         left: 0;
-        padding: 0 25px;
+        padding: 0 15px;
         width: 100%;
         flex-direction: column;
         height: 0px;
-        border-radius: 0 0 30px 30px;
-        box-shadow: 0 20px 20px rgb(0, 0, 0, 0.1);
-        backdrop-filter: blur(25px);
+        border-radius: 0 0 20px 20px; /* Reduce border radius */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+        backdrop-filter: blur(20px);
         overflow: hidden;
-        transition: 0.5s ease;
+        transition: height 0.5s ease, padding 0.5s ease; /* Animate padding as well */
     }
 
     #menu-toggle:checked ~ .list-menu {
-        height: 220px;
-        padding: 25px;
+        height: 200px; /* Smaller menu height */
+        padding: 15px; /* Reduced padding */
     }
 
     main {
         flex-direction: column-reverse;
         align-items: start;
         justify-content: space-evenly;
-        padding: 0 25px;
-        padding-top: 80px;
+        padding: 0 20px;
+        padding-top: 60px; /* Adjust top padding */
     }
-    .image-one {
-        width: 280px;
-        height: 100%;
 
+    .image-one {
+       display: none;
     }
+
     .main-footer {
-        padding: 0 25px;
+        padding: 0 20px; /* Consistent padding */
     }
     .bottom-footer {
         flex-direction: column;
-        gap: 25px;
+        gap: 20px; /* Adjust gap for smaller screens */
     }
 }
 
-@media (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     header {
-        padding: 0 50px;
+        padding: 0 40px; /* Adjust padding for tablet screens */
     }
 
     .main-footer {
-        padding: 0 50px;
+        padding: 0 40px; /* Consistent padding */
     }
+
     .logo-box {
         min-width: 100%;
     }
