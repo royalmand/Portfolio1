@@ -2,30 +2,52 @@
 let copy = document.querySelector(".logos-slide").cloneNode(true);
 document.querySelector(".content-two").appendChild(copy);
 
-// Function to check if the element is in the viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top <= window.innerHeight && rect.bottom >= 0
-    );
-}
+// // Function to map a value from one range to another
+// function mapRange(value, inMin, inMax, outMin, outMax) {
+//     return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+// }
 
-// Function to add 'active' class when element is in the viewport
-function onScrollAnimation() {
-    const silk = document.querySelector(".silk");
-    const zeronym = document.querySelector(".zeronym");
-    const misthi = document.querySelector(".misthi");
+// // Function to handle scrolling and animations
+// function handleScrollAnimations() {
+//     const cards = document.querySelectorAll('.card');
+//     const viewportHeight = window.innerHeight;
+    
+//     cards.forEach((card, index) => {
+//         const cardRect = card.getBoundingClientRect();
+//         const cardTop = cardRect.top;
+//         const cardHeight = cardRect.height;
 
-    if (isInViewport(silk)) {
-        silk.classList.add("silk-active");
-    }
-    if (isInViewport(zeronym)) {
-        zeronym.classList.add("zeronym-active");
-    }
-    if (isInViewport(misthi)) {
-        misthi.classList.add("misthi-active");
-    }
-}
+//         // Adjust animation speed by reducing the input range
+//         const speedMultiplier = 0.1;  // Reduced value to make the animation faster
 
-// Attach the function to the scroll event
-window.addEventListener("scroll", onScrollAnimation);
+//         // Calculate the progress of the card in the viewport
+//         const progress = mapRange(cardTop, viewportHeight * (1 + speedMultiplier), -cardHeight * (1 + speedMultiplier), 0, 1);
+        
+//         // Clamp the progress between 0 and 1
+//         const clampedProgress = Math.max(0, Math.min(1, progress));
+        
+//         // Set the opacity based on the progress
+//         card.style.opacity = clampedProgress;
+
+//         // Apply different animations for each card
+//         if (index === 0) { // Card 1: Slide from Left
+//             card.style.transform = `translateX(${mapRange(clampedProgress, 0, 1, -100, 0)}%)`;
+//         } else if (index === 1) { // Card 2: Fade In
+//             card.style.opacity = clampedProgress; // Only change opacity for fade effect
+//             card.style.transform = `translateY(${mapRange(clampedProgress, 0, 1, 50, 0)}px)`; // Adjust position slightly for a smooth appearance
+//         } else if (index === 2) { // Card 3: Slide from Right
+//             card.style.transform = `translateX(${mapRange(clampedProgress, 0, 1, 100, 0)}%)`;
+//         }
+        
+//         // Stop the animation when the card is fully visible
+//         if (clampedProgress === 1) {
+//             return;
+//         }
+//     });
+
+//     // Request the next frame for a smooth animation
+//     requestAnimationFrame(handleScrollAnimations);
+// }
+
+// // Start the scroll animation handler
+// handleScrollAnimations();

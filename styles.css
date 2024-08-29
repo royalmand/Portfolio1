@@ -270,18 +270,19 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
     padding: 20px 0;
-    animation: showUp 0.7s forwards;
-    animation-delay: 2.3s;
-    opacity: 0;
+    margin-bottom: 10px;
 }
 
 .content-three .three-text1 {
     font-size: 50px;
     font-weight: 600;
     text-align: center; /* Center align the heading */
-    margin-bottom: 20px; /* Add spacing below the heading */
+    margin-bottom: 30px; /* Add spacing below the heading */
+    animation: showFade forwards;
+    animation-timeline: view();
+    animation-range: entry 0;
+    opacity: 0;
 }
 
 .protocols {
@@ -293,9 +294,8 @@ main {
 }
 
 .card {
-    background-color: green;
     padding: 20px;
-    height: 300px;
+    height: 400px;
     width: 300px;
     border-radius: 10px;
     position: relative; /* Make card relative for positioning */
@@ -303,6 +303,8 @@ main {
     flex-direction: column; /* Stack content vertically */
     align-items: flex-start; /* Align items to the start */
     justify-content: space-between; /* Space content evenly */
+    opacity: 0; /* Start hidden */
+    transition: none; /* Disable CSS transition for smoother control */
 }
 
 .card img {
@@ -319,8 +321,9 @@ main {
     width: 100%; /* Occupy full width to align content */
     display: flex; /* Use flex to align arrow and title */
     align-items: center; /* Center align vertically */
-    animation: showUp 0.7s forwards;
+    animation: showUp forwards;
     animation-delay: 2.9s;
+    animation-timeline: view();
     opacity: 0;
 }
 
@@ -333,30 +336,69 @@ main {
     cursor: pointer; /* Add a pointer cursor */
 }
 
+.protocol-jargon {
+    height: 0;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.info {
+    opacity: 0;
+    font-size: 12px;
+    transition: opacity 0.3s ease; /* Smooth transition */
+    margin-top: 0; /* Ensure there's no extra space initially */
+}
+
+/* On hover, show the .info and move .protocol-jargon up */
+.card:hover .info {
+    opacity: 1; /* Make it visible */
+    transform: translateY(-10px);
+}
+
+.card:hover .protocol-jargon {
+    transform: translateY(-10px); /* Move up slightly */
+}
+
 .silk {
     background: #925D32;
-    opacity: 0;
-    transform: translate(-100%, -100%); /* Start off-screen from the top left */
-    transition: all 0.5s ease-out; /* Smooth transition for added effect */
+    animation: slideLeft forwards;
+    animation-timeline: view();
+    animation-range: entry 0;
 }
 
 .zeronym {
     background: #26328a;
-    opacity: 0; /* Start hidden */
+    animation: showFade forwards;
+    animation-timeline: view();
+    animation-range: entry 0;
 }
 
 .misthi {
     background: #b79913;
-    opacity: 0;
-    transform: translate(100%, -100%); /* Start off-screen from the top right */
-    transition: all 0.5s ease-out; /* Smooth transition for added effect */
-}
-
-.hidden-wrap {
-    display: none;
+    animation: slideRight forwards;
+    animation-timeline: view();
+    animation-range: entry 0;
 }
 
 /* END OF MAIN CONTENT 3 */
+
+/* MAIN CONTENT 4 */
+.content-four {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-four .four-left {
+    background-color: violet;
+}
+
+.content-four .four-right {
+    background-color: #6633FF;
+}
+
+/* END OF MAIN CONTENT 4 */
+
 
 /* FOOTER */
 footer {
@@ -474,6 +516,9 @@ footer {
 }
 
 @keyframes showFade {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
     }
@@ -504,6 +549,7 @@ footer {
 
 @keyframes slideLeft {
     from {
+        opacity: 0;
         transform: translate(-100%, -50%);
     }
     to {
@@ -514,6 +560,7 @@ footer {
 
 @keyframes slideRight {
     from {
+        opacity: 0;
         transform: translate(100%, -50%);
     }
     to {
@@ -521,20 +568,6 @@ footer {
         transform: translate(0, 0);
     }
 }
-
-/* Class to activate animation */
-.silk-active {
-    animation: slideLeft 1s forwards;
-}
-
-.zeronym-active {
-    animation: showUp 1.2s forwards;
-}
-
-.misthi-active {
-    animation: slideRight 1s forwards;
-}
-/* END of Class to activate animation */
 
 /* END OF ANIMATION  */
 
