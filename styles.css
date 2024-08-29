@@ -382,19 +382,57 @@ main {
 
 /* END OF MAIN CONTENT 3 */
 
+.line-separation {
+    height: 2px;
+    background: radial-gradient(57.99999999999999% 50% at 50% 50%, #545454 0%, rgb(0, 0, 0) 100%);
+}
+
 /* MAIN CONTENT 4 */
 .content-four {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100vh;
 }
 
 .content-four .four-left {
-    background-color: violet;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .08) 0%, rgba(0, 0, 0, 0) 56.92919481981982%, rgba(47, 59, 225, .7) 100%);
+    padding: 32px 20px 20px;
+    border-radius: 16px;
+    height: 80vh;
+    width: 550px;
+    position: relative;
+}
+
+.current-chiper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    bottom: 50px; /* Adjust this value to move the text up or down */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Perfectly center text horizontally */
+}
+
+.email-submit input {
+    height: 40px;
+}
+
+.chiper-title {
+    font-size: 35px;
+    font-weight: 400;
 }
 
 .content-four .four-right {
     background-color: #6633FF;
+    border-radius: 10px;
 }
 
 /* END OF MAIN CONTENT 4 */
