@@ -446,6 +446,17 @@ main {
     transform: translateX(-50%); /* Perfectly center text horizontally */
 }
 
+.email-submit::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z"></path></svg>'); /* Embed your SVG icon as a data URL */
+    position: absolute;
+    left: 10px; /* Adjust the spacing from the left */
+    top: 60%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensures the icon does not block input interaction */
+    font-size: 16px; /* Adjust the size of the icon */
+    filter: brightness(0.5);
+}
+
 .email-submit input {
     height: 40px;
 }
@@ -460,7 +471,9 @@ main {
     border-bottom-left-radius: 16px;
     border: none;
     padding: 10px;
+    padding-left: 40px; /* Adds padding to the left to make space for the icon */
     width: 200px;
+    color: black;
 }
 
 .submit-button {
@@ -565,7 +578,7 @@ footer {
 .logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
     margin-bottom: 24px;
 }
 
@@ -577,8 +590,8 @@ footer {
     font-weight: 600;
     position: relative;
     width: fit-content;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .label-menu::before {
