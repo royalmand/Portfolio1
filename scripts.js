@@ -2,6 +2,12 @@
 let copy = document.querySelector(".logos-slide").cloneNode(true);
 document.querySelector(".content-two").appendChild(copy);
 
+var moment = require('moment'); // require
+
+var dateAccess = new Date();
+var date = moment(dateAccess).format('MMMM Do YYYY, h:mm:ss a');
+
+
 // // Function to map a value from one range to another
 // function mapRange(value, inMin, inMax, outMin, outMax) {
 //     return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;

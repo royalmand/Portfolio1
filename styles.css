@@ -4,7 +4,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    color: white;
+    color: var(--text-color);
+}
+
+:root {
+    --text-color: #F1F1F1;
 }
 
 body {
@@ -24,7 +28,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 100px;
-    color: white;
+    color: var(--text-color);
     z-index: 1;
 }
 
@@ -45,44 +49,45 @@ header {
 
 .list-menu li {
     list-style: none;
-    animation: showUp 0.7s forwards;
-    opacity: 0;
-    transform: translateY(20px);
 }
 
-.list-menu li:nth-child(1) {
-    animation-delay: 0.5s;
+/* .list-menu li:nth-child(1) {
+    animation-delay: 1s;
 }
 
 .list-menu li:nth-child(2) {
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 .list-menu li:nth-child(3) {
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 .list-menu li:nth-child(4) {
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 .list-menu li:nth-child(5) {
-    animation-delay: 0.5s;
-}
+    animation-delay: 1s;
+} */
+
 
 .list-menu li a {
     text-decoration: none;
     font-weight: 600;
     color: #999999;
-    transition: 0.25s;
+    transition: background 0.5s ease, padding 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Smooth transition for all changing properties */
 }
 
 .list-menu li a:hover{
-    color: white;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 16px;
+    background: #45454A;
 }
 
 .list-menu li .active {
-    color: white;
+    color: var(--text-color);
 }
 /* END OF HEADER */
 
@@ -115,7 +120,7 @@ main {
     font-size: 50px;
     font-weight: 600;
     line-height: 1.2;
-    color: white;
+    color: var(--text-color);
     animation: showUp 0.7s forwards;
     animation-delay: 0.8s;
     opacity: 0;
@@ -167,7 +172,7 @@ main {
 }
 
 .list-button-top .create-human-key:hover {
-    border-style: 1px solid white;
+    border-style: 1px solid var(--text-color);
 }
 
 .list-button-bottom {
@@ -186,7 +191,7 @@ main {
 .list-button-bottom .prove-person {
     border: 1px solid #6666FF;
     background-color: #6633FF;
-    color: white;
+    color: var(--text-color);
     animation: showUp 0.7s forwards;
     animation-delay: 1.2s;
     opacity: 0;
@@ -195,7 +200,7 @@ main {
 .list-button-bottom .prove-person:hover {
     background-color: #4b1eb3;
     border: 1px solid #4b1eb3;
-    color: white;
+    color: var(--text-color);
     transition: 0.5s;
 }
 
@@ -211,7 +216,7 @@ main {
 
 .list-button-bottom .request-demo:hover {
     background-color: #45454A;
-    color: white;
+    color: var(--text-color);
     transition: 0.5s;
 }
 /* END OF MAIN CONTENT 1 */
@@ -257,10 +262,13 @@ main {
     animation: 30s slide infinite linear;
 }
 
-
 .logos-slide img {
     height: 50px;
-    margin: 0 40px;
+    margin: 0 30px;
+}
+
+.two-logo {
+    filter: grayscale(100%); /* Converts the image to grayscale */
 }
 /* END OF MAIN CONTENT 2 */
 
@@ -303,6 +311,8 @@ main {
     flex-direction: column; /* Stack content vertically */
     align-items: flex-start; /* Align items to the start */
     justify-content: space-between; /* Space content evenly */
+    filter: brightness(0.6); /* Darken the original color */
+    
     opacity: 0; /* Start hidden */
     transition: none; /* Disable CSS transition for smoother control */
 }
@@ -312,6 +322,28 @@ main {
     width: 150px;
     margin: 0 auto;
     border-radius: 5px; /* Add slight border-radius to images */
+}
+
+.card:hover {
+    cursor: pointer;
+    filter: brightness(1); /* Restore brightness on hover */
+    transition: 0.5s;
+    transform: scale(1.05); /*Slightly scale up the card on hover*/
+}
+
+.card:hover::before {
+    bottom: 100%; /* Move upwards to the top of the card */
+    opacity: 1; /* Make the light visible */
+}
+
+/* On hover, show the .info and move .protocol-jargon up */
+.card:hover .info {
+    opacity: 1; /* Make it visible */
+    transform: translateY(-10px);
+}
+
+.card:hover .protocol-jargon {
+    transform: translateY(-10px); /* Move up slightly */
 }
 
 .protocol-title {
@@ -332,7 +364,7 @@ main {
     right: 10px; /* Adjust right position */
     top: 10; /* Align to the top */
     font-size: 16px; /* Adjust font size */
-    color: white; /* Adjust color for better visibility */
+    color: var(--text-color); /* Adjust color for better visibility */
     cursor: pointer; /* Add a pointer cursor */
 }
 
@@ -347,16 +379,6 @@ main {
     font-size: 12px;
     transition: opacity 0.3s ease; /* Smooth transition */
     margin-top: 0; /* Ensure there's no extra space initially */
-}
-
-/* On hover, show the .info and move .protocol-jargon up */
-.card:hover .info {
-    opacity: 1; /* Make it visible */
-    transform: translateY(-10px);
-}
-
-.card:hover .protocol-jargon {
-    transform: translateY(-10px); /* Move up slightly */
 }
 
 .silk {
@@ -390,9 +412,9 @@ main {
 /* MAIN CONTENT 4 */
 .content-four {
     display: flex;
-    height: 100vh;
+    height: 90vh;
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .content-four .four-left {
@@ -400,7 +422,6 @@ main {
     flex: 1;
     display: flex; /* Use flexbox to center the box if needed */
     justify-content: center;
-    align-items: center;
     padding: 32px 20px 20px;
     border-radius: 16px;
     height: 80vh;
@@ -411,8 +432,6 @@ main {
 .current-chiper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .email-submit {
@@ -434,19 +453,81 @@ main {
     font-weight: 400;
 }
 
+.input-email {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border: none;
+    padding: 10px;
+    width: 200px;
+}
+
+.submit-button {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border: none;
+    padding: 10px;
+    background-color: #6633FF;
+    color: var(--text-color);
+}
+
 .content-four .four-right {
     flex: 1; /* Takes up 1 part of the available space */
     display: flex; /* Use flexbox for vertical stacking */
     flex-direction: column; /* Aligns children in a column */
     gap: 20px; /* Adds space between the boxes */
-    margin: 10px 0;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    position: relative;
 }
 
 .news {
-    background-color: #3342cd; /* Box background color */
+    background: radial-gradient(50% 100% at 9.3% 0%, rgb(25, 25, 56) 0%, rgb(22, 22, 22), rgb(22, 22, 22) 100%); /* Box background color */
     padding: 20px; /* Padding inside the boxes */
-    border: 1px solid #ccc; /* Optional: Box border */
+    border: none; /* Optional: Box border */
+    border-radius: 16px;
+    position: relative;
     text-align: center; /* Centers text inside the box */
+    transition: background 0.5s ease, border-radius 0.5s ease, filter 0.5s ease; /* Smooth transition for all properties */
+}
+
+.news:hover {
+    filter: brightness(1.1); /* Brightens the image when hovered */
+    background: radial-gradient(100% 100% at 20% 0%, rgb(25, 25, 56) 0%, rgb(22, 22, 22), rgb(22, 22, 22) 100%); /* Box background color */
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+/* .arrow-4:hover {
+    padding: 10px;
+    cursor: pointer;
+
+} */
+
+.date, .title-4, .snippet-new-4 {
+    margin: 0 0 10px; /* Adjust margin */
+    display: flex; /* Use flex to align date */
+}
+
+.date {
+    font-size: 12px;
+    color: #9C8EF4;
+}
+
+.arrow-4 {
+    position: absolute; /* Position arrow absolutely */
+    right: 20px; /* Adjust right position */
+    top: 15px; /* Align to the top */
+    font-size: 20px; /* Adjust font size */
+    color: var(--text-color); /* Adjust color for better visibility */
+    cursor: pointer; /* Add a pointer cursor */
+}
+
+.snippet-new-4 {
+    font-size: 12px;
+    color: lightslategray;
+    text-align: left;
+    margin: 0 0 10px;
 }
 
 /* END OF MAIN CONTENT 4 */
@@ -454,7 +535,7 @@ main {
 
 /* FOOTER */
 footer {
-    color: white;
+    color: var(--text-color);
     overflow: hidden;
 }
 
@@ -526,7 +607,7 @@ footer {
 .menu-box a:hover {
     left: 1px;
     bottom: 1px;
-    color: white;
+    color: var(--text-color);
 }
 /* END OF TOP FOOTER */
 
@@ -553,7 +634,7 @@ footer {
 
 .social-media i:hover {
     bottom: 3px;
-    color: white;
+    color: var(--text-color);
 }
 
 /* END OF BOTTOM FOOTER */
