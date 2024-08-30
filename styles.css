@@ -44,7 +44,7 @@ header {
 
 .list-menu {
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .list-menu li {
@@ -75,13 +75,15 @@ header {
 .list-menu li a {
     text-decoration: none;
     font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 16px;
     color: #999999;
+    border: 1px solid transparent;
     transition: background 0.5s ease, padding 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Smooth transition for all changing properties */
 }
 
 .list-menu li a:hover{
     color: var(--text-color);
-    padding: 5px 10px;
     border-radius: 16px;
     background: #45454A;
 }
@@ -498,12 +500,6 @@ main {
     border-radius: 30px;
 }
 
-/* .arrow-4:hover {
-    padding: 10px;
-    cursor: pointer;
-
-} */
-
 .date, .title-4, .snippet-new-4 {
     margin: 0 0 10px; /* Adjust margin */
     display: flex; /* Use flex to align date */
@@ -521,6 +517,12 @@ main {
     font-size: 20px; /* Adjust font size */
     color: var(--text-color); /* Adjust color for better visibility */
     cursor: pointer; /* Add a pointer cursor */
+    border-radius: 50%;
+}
+
+.news .arrow-4:hover {
+    background: #45454A;
+    cursor: pointer;
 }
 
 .snippet-new-4 {
